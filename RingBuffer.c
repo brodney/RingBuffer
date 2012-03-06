@@ -46,6 +46,11 @@ RingBuffer * rbInit(size_t nelem, size_t elemsize) {
     return rb;
 }
 
+void rbDestroy(RingBuffer *rb) {
+    free(rb->buffer);
+    free(rb);
+}
+
 void rbPush(RingBuffer *rb, void *elem) {
     
     memmove(rb->buffer + (rb->writeIndex++ & (rb->capacity - 1))*rb->eleSize,elem , rb->eleSize);

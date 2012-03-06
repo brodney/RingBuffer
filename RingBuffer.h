@@ -33,6 +33,7 @@ typedef struct RingBuffer {
 
 // Nelem will be rounded up to a power of 2
 RingBuffer * rbInit(size_t nelem, size_t elemsize);
+void rbDestroy(RingBuffer *rb);
 
 void rbPush(RingBuffer *rb, void *elem);
 void rbPushN(RingBuffer *rb, void *elem, int n);
