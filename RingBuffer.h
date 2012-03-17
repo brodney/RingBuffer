@@ -56,4 +56,4 @@ int rbCanPop(RingBuffer *rb, int n);
 void rbPrintInt(RingBuffer *rb);
 void rbPrintFloat(RingBuffer *rb);
 
-int roundNextPowerof2(int inVal);
+int rbRoundNextPowerof2(int inVal);

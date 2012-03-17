@@ -28,7 +28,7 @@ DEALINGS IN THE SOFTWARE.
 #include "RingBuffer.h"
 
 
-int roundNextPowerof2(int inVal) {
+int rbRoundNextPowerof2(int inVal) {
     int pow2 = 1;
     while (inVal > pow2 && pow2 < (1 << 30) - 1) {
         pow2 = pow2 << 1;
@@ -38,7 +38,7 @@ int roundNextPowerof2(int inVal) {
 
 RingBuffer * rbInit(size_t nelem, size_t elemsize) {
     RingBuffer *rb = malloc(sizeof(RingBuffer));
-    rb->capacity = roundNextPowerof2(nelem);
+    rb->capacity = rbRoundNextPowerof2(nelem);
     rb->eleSize = elemsize;
     rb->readIndex = rb->writeIndex = 0;
     rb->buffer = calloc(rb->capacity, elemsize);
